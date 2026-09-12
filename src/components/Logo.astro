@@ -1,0 +1,34 @@
+---
+interface Props {
+  size?: number;
+  showText?: boolean;
+}
+
+const { size = 36, showText = true } = Astro.props;
+---
+
+<a href="/" class="flex items-center gap-2.5 shrink-0">
+  <svg width={size} height={size} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="cognitexGradient" x1="4" y1="6" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#00D1FF" />
+        <stop offset="100%" stop-color="#7A3CFF" />
+      </linearGradient>
+    </defs>
+    <path
+      d="M27 9a13 13 0 1 0 0 22"
+      stroke="url(#cognitexGradient)"
+      stroke-width="3.4"
+      stroke-linecap="round"
+      fill="none"
+    />
+    <path d="M19 20h9" stroke="url(#cognitexGradient)" stroke-width="2" stroke-linecap="round" />
+    <circle cx="19" cy="20" r="2.1" fill="url(#cognitexGradient)" />
+    <circle cx="30" cy="20" r="2.1" fill="url(#cognitexGradient)" />
+  </svg>
+  {showText && (
+    <span class="font-display font-black tracking-wide text-white text-lg leading-none">
+      COGNI<span class="text-gradient">TEX</span> <span class="font-sans font-semibold text-xs tracking-[0.3em] text-brand-gray/70 align-middle ml-0.5">LABS</span>
+    </span>
+  )}
+</a>

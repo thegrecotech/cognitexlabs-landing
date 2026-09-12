@@ -1,0 +1,49 @@
+---
+const products = [
+  {
+    name: 'Vexa',
+    tagline: 'Plataforma de registro y gestión ganadera',
+    description:
+      'Software para el control y trazabilidad del hato ganadero: registro de animales, historial, reportes y más, en un solo lugar.',
+    status: 'En producción',
+  },
+  {
+    name: 'Treboly',
+    tagline: 'Próximamente',
+    description: 'Otro de nuestros productos propios, actualmente en desarrollo. Más detalles muy pronto.',
+    status: 'En desarrollo',
+  },
+];
+---
+
+<section id="productos" class="px-6 py-24 bg-brand-navy-light/40">
+  <div class="mx-auto max-w-6xl">
+    <div class="text-center max-w-2xl mx-auto">
+      <span class="text-xs font-semibold tracking-[0.2em] text-brand-blue">NUESTROS PRODUCTOS</span>
+      <h2 class="mt-3 font-display font-bold text-3xl sm:text-4xl text-white">Lo que construimos</h2>
+      <p class="mt-4 text-brand-gray/70">
+        Además de proyectos a la medida, desarrollamos y operamos nuestros propios productos.
+      </p>
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 md:grid-cols-2 gap-6">
+      {products.map((product) => (
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-8 flex flex-col">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display font-black text-2xl text-white">{product.name}</h3>
+            <span class="text-[11px] font-semibold tracking-wide uppercase rounded-full border border-brand-blue/30 text-brand-blue px-3 py-1">
+              {product.status}
+            </span>
+          </div>
+          <p class="mt-1 text-sm font-medium text-brand-gray/60">{product.tagline}</p>
+          <p class="mt-4 text-brand-gray/80 leading-relaxed flex-1">{product.description}</p>
+        </div>
+      ))}
+
+      <div class="md:col-span-2 rounded-2xl border border-dashed border-white/15 p-8 text-center">
+        <p class="font-display font-bold text-white">Más proyectos en camino</p>
+        <p class="mt-2 text-sm text-brand-gray/60">Seguimos construyendo. Pronto contaremos más.</p>
+      </div>
+    </div>
+  </div>
+</section>
