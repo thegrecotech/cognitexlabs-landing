@@ -1,19 +1,26 @@
 ---
+const whatsappPhone = '573244085802';
+const whatsappMessage = 'Hola, vengo desde la página web de Cognitex Labs. Me gustaría conversar sobre un proyecto.';
+const whatsappHref = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(whatsappMessage)}`;
+
 const contactMethods = [
   {
     label: 'Email',
-    value: 'info@cognitexlabs.com',
-    href: 'mailto:info@cognitexlabs.com',
+    value: 'cognitexsas@gmail.com',
+    href: 'mailto:cognitexsas@gmail.com',
+    whatsapp: false,
   },
   {
     label: 'Teléfono',
-    value: '+57 300 123 4567',
-    href: 'tel:+573001234567',
+    value: '+57 324 408 5802',
+    href: whatsappHref,
+    whatsapp: true,
   },
   {
     label: 'Ubicación',
     value: 'Medellín, Colombia',
     href: null,
+    whatsapp: false,
   },
 ];
 ---
@@ -25,15 +32,17 @@ const contactMethods = [
     <span class="text-xs font-semibold tracking-[0.2em] text-brand-blue">CONTÁCTANOS</span>
     <h2 class="mt-3 font-display font-bold text-3xl sm:text-4xl text-white">¿Tienes un proyecto en mente?</h2>
     <p class="mt-4 text-brand-gray/70 max-w-xl mx-auto">
-      Cuéntanos qué necesitas y te contactamos para conversar sobre cómo podemos ayudarte.
+      Escríbenos a nuestro correo contándonos qué necesitas: el tipo de proyecto, tu idea o el problema que
+      quieres resolver. Te respondemos directamente a tu correo para agendar una llamada y conversar los
+      siguientes pasos.
     </p>
 
     <div class="mt-8">
       <a
-        href="mailto:info@cognitexlabs.com"
+        href="mailto:cognitexsas@gmail.com"
         class="inline-flex items-center justify-center rounded-full bg-gradient-brand px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-purple/25 hover:opacity-90 transition-opacity"
       >
-        Escríbenos
+        Escríbenos a cognitexsas@gmail.com
       </a>
     </div>
 
@@ -42,7 +51,18 @@ const contactMethods = [
         <div class="rounded-xl border border-white/10 p-4">
           <p class="text-xs font-semibold tracking-wide uppercase text-brand-gray/50">{method.label}</p>
           {method.href ? (
-            <a href={method.href} class="mt-1 block text-white font-medium hover:text-brand-blue transition-colors">
+            <a
+              href={method.href}
+              target={method.whatsapp ? '_blank' : undefined}
+              rel={method.whatsapp ? 'noopener noreferrer' : undefined}
+              class="mt-1 flex items-center gap-1.5 text-white font-medium hover:text-brand-blue transition-colors"
+            >
+              {method.whatsapp && (
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" class="shrink-0 text-[#25D366]">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.149-.15.35-.398.523-.597.174-.198.232-.339.348-.564.116-.226.058-.421-.017-.564-.09-.148-.767-1.85-1.052-2.55-.28-.68-.556-.579-.759-.579h-.632c-.198 0-.531.075-.812.375-.28.298-1.075 1.05-1.075 2.567 0 1.516 1.104 2.99 1.253 3.194.15.198 2.055 3.15 5.005 4.288 2.95 1.14 2.95.76 3.483.71.532-.05 1.75-.71 2-1.402.248-.694.248-1.29.174-1.402-.075-.11-.273-.174-.57-.323z" />
+                  <path d="M12.019 2C6.55 2 2.02 6.53 2.02 12c0 2.11.68 4.06 1.83 5.66L2.5 22l4.5-1.32A9.94 9.94 0 0 0 12.02 22C17.49 22 22 17.47 22 12S17.49 2 12.019 2Zm0 18.19c-1.82 0-3.51-.55-4.93-1.5l-.35-.21-3.06.9.92-2.99-.23-.36a8.14 8.14 0 0 1-1.34-4.49c0-4.49 3.65-8.14 8.14-8.14 4.49 0 8.14 3.65 8.14 8.14 0 4.49-3.65 8.14-8.14 8.14Z" />
+                </svg>
+              )}
               {method.value}
             </a>
           ) : (
