@@ -2,6 +2,7 @@
 const products = [
   {
     name: 'Vexa',
+    url: 'https://www.vexa.eco',
     tagline: 'Plataforma de registro y gestión ganadera',
     description:
       'Software para el control y trazabilidad del hato ganadero: registro de animales, historial, reportes y más, en un solo lugar.',
@@ -9,6 +10,7 @@ const products = [
   },
   {
     name: 'Treboly',
+    url: 'https://www.treboly.net',
     tagline: 'Próximamente',
     description: 'Otro de nuestros productos propios, actualmente en desarrollo. Más detalles muy pronto.',
     status: 'En desarrollo',
@@ -30,13 +32,34 @@ const products = [
       {products.map((product) => (
         <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-8 flex flex-col">
           <div class="flex items-center justify-between">
-            <h3 class="font-display font-black text-2xl text-white">{product.name}</h3>
+            {product.url ? (
+              <a
+                href={product.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-display font-black text-2xl text-white hover:text-brand-blue transition-colors"
+              >
+                {product.name}
+              </a>
+            ) : (
+              <h3 class="font-display font-black text-2xl text-white">{product.name}</h3>
+            )}
             <span class="text-[11px] font-semibold tracking-wide uppercase rounded-full border border-brand-blue/30 text-brand-blue px-3 py-1">
               {product.status}
             </span>
           </div>
           <p class="mt-1 text-sm font-medium text-brand-gray/60">{product.tagline}</p>
           <p class="mt-4 text-brand-gray/80 leading-relaxed flex-1">{product.description}</p>
+          {product.url && (
+            <a
+              href={product.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-blue hover:text-white transition-colors"
+            >
+              Visitar sitio →
+            </a>
+          )}
         </div>
       ))}
 
