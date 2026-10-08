@@ -32,3 +32,77 @@ body {
 .bg-gradient-brand {
   background-image: linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-purple));
 }
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -20px) scale(1.08);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-enter {
+  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0ms) both;
+}
+
+.animate-float {
+  animation: float 12s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 16s ease-in-out infinite reverse;
+}
+
+.text-gradient-animated {
+  background-size: 200% auto;
+  background-image: linear-gradient(90deg, var(--color-brand-blue), var(--color-brand-purple), var(--color-brand-blue));
+  animation: gradient-shift 6s ease-in-out infinite;
+}
+
+/* Animation (not transition) so it never fights Tailwind's hover transitions. */
+.js .reveal {
+  opacity: 0;
+}
+
+.js .reveal.is-visible {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0ms) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-enter,
+  .animate-float,
+  .animate-float-slow,
+  .text-gradient-animated,
+  .js .reveal.is-visible {
+    animation: none;
+  }
+
+  .js .reveal {
+    opacity: 1;
+  }
+}
