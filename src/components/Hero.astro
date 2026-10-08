@@ -3,8 +3,8 @@
 
 <section class="relative overflow-hidden pt-40 pb-28 px-6">
   <div class="pointer-events-none absolute inset-0 -z-10">
-    <div class="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-brand-blue/20 blur-2xl"></div>
-    <div class="absolute top-1/3 -right-24 h-80 w-80 rounded-full bg-brand-purple/25 blur-2xl"></div>
+    <div class="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-brand-blue/20 blur-2xl animate-float"></div>
+    <div class="absolute top-1/3 -right-24 h-80 w-80 rounded-full bg-brand-purple/25 blur-2xl animate-float-slow"></div>
     <svg class="absolute inset-0 h-full w-full opacity-[0.07]" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
@@ -16,20 +16,20 @@
   </div>
 
   <div class="mx-auto max-w-4xl text-center">
-    <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold tracking-[0.2em] text-brand-blue">
+    <span class="animate-enter inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold tracking-[0.2em] text-brand-blue">
       COGNITEX LABS
     </span>
 
-    <h1 class="mt-6 font-display font-black text-4xl sm:text-5xl md:text-6xl leading-[1.1] text-white">
-      Inteligencia que <span class="text-gradient">construye el futuro</span>
+    <h1 style="--delay: 150ms" class="animate-enter mt-6 font-display font-black text-4xl sm:text-5xl md:text-6xl leading-[1.1] text-white">
+      Inteligencia que <span class="text-gradient text-gradient-animated">construye el futuro</span>
     </h1>
 
-    <p class="mt-6 text-lg text-brand-gray/80 max-w-2xl mx-auto">
+    <p class="animate-enter mt-6 text-lg text-brand-gray/80 max-w-2xl mx-auto" style="--delay: 300ms">
       Diseñamos y desarrollamos software e inteligencia artificial a la medida. Creamos productos propios —
-      como <a href="https://www.vexa.eco" target="_blank" rel="noopener noreferrer" class="text-white underline decoration-brand-blue/40 hover:decoration-brand-blue transition-colors">Vexa</a> y <a href="https://www.treboly.net" target="_blank" rel="noopener noreferrer" class="text-white underline decoration-brand-blue/40 hover:decoration-brand-blue transition-colors">Treboly</a>— y acompañamos a otras empresas a construir los suyos.
+      como <a href="https://www.vexa.eco" target="_blank" rel="noopener noreferrer" class="text-white underline decoration-brand-blue/40 hover:decoration-brand-blue transition-colors">Vexa</a>, <a href="https://www.treboly.net" target="_blank" rel="noopener noreferrer" class="text-white underline decoration-brand-blue/40 hover:decoration-brand-blue transition-colors">Treboly</a> y <a href="https://torny.net" target="_blank" rel="noopener noreferrer" class="text-white underline decoration-brand-blue/40 hover:decoration-brand-blue transition-colors">Torny Pass</a>— y acompañamos a otras empresas a construir los suyos.
     </p>
 
-    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+    <div class="animate-enter mt-10 flex flex-col sm:flex-row items-center justify-center gap-4" style="--delay: 450ms">
       <a
         href="#contacto"
         class="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-gradient-brand px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-purple/25 hover:opacity-90 transition-opacity"
